@@ -6,3 +6,10 @@
         - =>
     - api
         - fetch
+		
+- CSS
+    - `@import`
+    - `@keyframes fadeIn`
+## info
+
+- <https://script.google.com/macros/s/AKfycbx1CJsweGrjNIhmtxs5uNEAZteS-E9b8l2rJJ7auQFlFSnYDizx/exec>
