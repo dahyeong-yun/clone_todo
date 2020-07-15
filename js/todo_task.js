@@ -1,6 +1,6 @@
 const todo_form = document.querySelector(".js-to-do");
-const todo_input = form.querySelector(".js-add-to-do"); // form 내 input
-const todo_list = form.querySelector(".js-list"); // form 내 input
+const todo_input = document.querySelector(".js-add-to-do"); // form 내 input
+const todo_list = document.querySelector(".js-list"); // form 내 input
 
 let todo_arr = [];
 
@@ -43,7 +43,15 @@ function save_todo(text) {
  * 
  */
 function handle_delete(event) {
-
+    const target = event.target;
+    const li = target.parentElement;
+    const ul = li.parentElement;
+    const todo_id = li.id;
+    ul.removeChild(li);
+    todo_arr = todo_arr.filter(function(todo) {
+      return todo.id !== parseInt(todo_id);
+    });
+    persist_todo();
 }
 
 /**
@@ -52,7 +60,7 @@ function handle_delete(event) {
 function add_todo(text) {
     const todo = document.createElement("li");
     todo.className = "todo";
-    todo.id = toDos.length + 1;
+    todo.id = todo_arr.length + 1;
     
     const del_btn = document.createElement("span");
     del_btn.innerHTML = "❌";
@@ -64,16 +72,19 @@ function add_todo(text) {
     todo.appendChild(del_btn);
     todo.appendChild(label);
     
-    list.appendChild(todo); // markup의 ul > 로 추가
+    todo_list.appendChild(todo); // markup의 ul > 로 추가
     
     save_todo(text);
 }
 
 function on_submit(event) {
-
+    event.preventDefault();
+    const value = todo_input.value;
+    todo_input.value = "";
+    add_todo(value);
 }
 
 
-form.addEventListener("submit", on_submit);
+todo_form.addEventListener("submit", on_submit);
 
 init();
