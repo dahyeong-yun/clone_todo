@@ -28,7 +28,7 @@ function paint_name_input() {
 }
 
 function handle_submit(event) {
-    event.preventDefalut();
+    event.preventDefault();
     const form = event.target;
     const input = form.querySelector("input");
     const value = input.value;
