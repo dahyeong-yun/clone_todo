@@ -1,9 +1,15 @@
+/**
+ * Global Variable
+ */
 const todo_form = document.querySelector(".js-to-do");
 const todo_input = document.querySelector(".js-add-to-do"); // form 내 input
 const todo_list = document.querySelector(".js-list"); // form 내 input
 
-let todo_arr = [];
+let todo_arr = []; // todo list array
 
+/**
+ * Functions
+ */
 function init() {
     load_todo();
 }
@@ -14,7 +20,7 @@ function load_todo() {
         const parsed_todo = JSON.parse(load_todo_str);
         parsed_todo.forEach(function(todo){
             add_todo(todo.value);
-        })
+        });
     }
 
 }
@@ -64,7 +70,7 @@ function add_todo(text) {
     
     const del_btn = document.createElement("span");
     del_btn.innerHTML = "❌";
-    del_btn.className = "toDo_button";
+    del_btn.className = "todo_button";
     del_btn.addEventListener("click", handle_delete);
     
     const label = document.createElement("label");
