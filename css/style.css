@@ -2,6 +2,8 @@
 @import "todo_main.css";
 @import "todo_center.css";
 @import "todo_clock.css";
-@import "todo_task.css"; */
-/* @import "todo_location.css";
-@import "todo_weather.css";*/
+@import "todo_task.css";
+@import "todo_weather.css";
+/*
+@import "todo_location.css";
+*/
